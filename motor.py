@@ -39,6 +39,23 @@ class Motor():
         self.pwm = GPIO.PWM(self.EN, 100)
         self.pwm.start(0)
 
+    '''...Translates analog stick values to values the motor can use...'''
+    def translate_analog_stick(value, center):
+        #Motors can only go up to a power of 100.
+        #The analog sticks can vary from 0 - 255.
+        #Do math that makes it so full throttle up/down/left/right equals 100.
+        translation = int((value-center)*0.78)
+    
+        #Keep number positive
+        if translation < 0:
+            translation *= -1
+    
+        #Number can not be gratter than 100. Just a precausion.
+        if translation > 100:
+            translation = 100
+    
+        return translation
+
 
     '''...Move motor Clockwise...'''
     def clockwise(self, speed, motor = "..."):

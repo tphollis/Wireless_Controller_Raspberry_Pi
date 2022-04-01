@@ -53,24 +53,6 @@ ANALOGS = {                         # values:
     }
 
 
-'''...Translates analog stick values to values the motor can use...'''
-def translate_analog_stick(value):
-    #Motors can only go up to a power of 100.
-    #The analog sticks can vary from 0 - 255.
-    #Do math that makes it so full throttle up/down/left/right equals 100.
-    translation = int((value-CENTER)*0.78)
-    
-    #Keep number positive
-    if translation < 0:
-        translation *= -1
-    
-    #Number can not be gratter than 100. Just a precausion.
-    if translation > 100:
-        translation = 100
-    
-    return translation
-
-
 '''...Runs the infinate loop activating code based on changes...'''
 def main():
     #The following shows GPIO numbers and their pin location on a raspberry pi.
@@ -102,19 +84,21 @@ def main():
             
             #If left analog stick is used, do the following. 
             if ANALOGS[event.code] == "joystick_left_y":
+                speed = leftDrive.translate_analog_stick(event.value, CENTER)
                 if event.value > CENTER+DRIFT:
-                    leftDrive.counterclockwise(translate_analog_stick(event.value), "left")
+                    leftDrive.counterclockwise(speed, "left")
                 elif event.value < CENTER-DRIFT:
-                    leftDrive.clockwise(translate_analog_stick(event.value), "left")
+                    leftDrive.clockwise(speed, "left")
                 else:
                     leftDrive.stop("left")
                     
             #If right analog stick is used, do the following.
             if ANALOGS[event.code] == "joystick_right_y":
+                speed = rightDrive.translate_analog_stick(event.value, CENTER)
                 if event.value > CENTER+DRIFT:
-                    rightDrive.counterclockwise(translate_analog_stick(event.value), "right")
+                    rightDrive.counterclockwise(speed, "right")
                 elif event.value < CENTER-DRIFT:
-                    rightDrive.clockwise(translate_analog_stick(event.value), "right")
+                    rightDrive.clockwise(speed, "right")
                 else:
                     rightDrive.stop("right")
 
