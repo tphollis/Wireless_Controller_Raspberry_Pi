@@ -23,6 +23,7 @@ CENTER = 128                                 # Joystick center positoin for x an
 DRIFT = 6                                    # Amount of padding around center to prevent drift
 
 BUTTONS = {
+    # values:
     # 0 = not pressed, 1 = pressed
     304:'square',
     305:'x',
@@ -40,7 +41,7 @@ BUTTONS = {
     317:'touchpad'
     }
 
-ANALOGS = {
+ANALOGS = {                         # values:
     0: 'joystick_left_x',           # 0 = left, 255 = right 
     1: 'joystick_left_y',           # 0 = up, 255 = down
     2: 'joystick_right_x',          # 0 = left, 255 = right
@@ -84,6 +85,9 @@ def main():
     
     #Get every event that happens on the controller. (Infinate loop)
     for event in GAMEPAD.read_loop():
+        # event.code gives you the number representing the controllers buttons/joysticks/triggers.
+        # event.value gives you the value of what is used on the controller.
+        # event.type tells you if buttons or analogs are being used. (Least likely to use)
         
         #Code for button types go here inside this IF statement.
         if event.type == ecodes.EV_KEY and event.code in BUTTONS:
