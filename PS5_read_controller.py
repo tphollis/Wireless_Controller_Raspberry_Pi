@@ -99,18 +99,18 @@ def main():
             #If left analog stick is used, do the following. 
             if ANALOGS[event.code] == "joystick_left_y":
                 if event.value > CENTER+DRIFT:
-                    leftDrive.backword(translate_analog_stick(event.value), "left")
+                    leftDrive.counterclockwise(translate_analog_stick(event.value), "left")
                 elif event.value < CENTER-DRIFT:
-                    leftDrive.forword(translate_analog_stick(event.value), "left")
+                    leftDrive.clockwise(translate_analog_stick(event.value), "left")
                 else:
                     leftDrive.stop("left")
                     
             #If right analog stick is used, do the following.
             if ANALOGS[event.code] == "joystick_right_y":
                 if event.value > CENTER+DRIFT:
-                    rightDrive.backword(translate_analog_stick(event.value), "right")
+                    rightDrive.counterclockwise(translate_analog_stick(event.value), "right")
                 elif event.value < CENTER-DRIFT:
-                    rightDrive.forword(translate_analog_stick(event.value), "right")
+                    rightDrive.clockwise(translate_analog_stick(event.value), "right")
                 else:
                     rightDrive.stop("right")
 
