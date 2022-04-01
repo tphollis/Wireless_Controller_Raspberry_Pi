@@ -21,7 +21,8 @@ This repository contains python code you can use on your raspberry to control GP
 
 ## Programs and their uses
 * <b>motor.py</b> - A class used to control any motor connectd to Raspberry Pi BPIO pins.
-  * <ins><i>motor1 = Motor(EN, IN1, IN2)</i></ins> - Create a motor instance to use its functions. 'EN' is the GPIO number that allows variable speed. 'IN1' and 'IN2' are GPIO numbers that determine the rotation direction of the motor. 
+  * <ins><i>motor1 = Motor(EN, IN1, IN2)</i></ins> - Create a motor instance to use its functions. 'EN' is the GPIO number that allows variable speed. 'IN1' and 'IN2' are GPIO numbers that determine the rotation direction of the motor.
+  * <ins>motor1.translateAnalogStick(value, center)</ins> - Takes the value of a joystick and converts it to a value the motor can use (0-100). 'value' is the output of the joystick. 'center' is the value of the joystick when it is in resting position.
   * <ins><i>motor1.clockwise(speed, motor)</i></ins> - This function tells motor1 to start moving clockwise at a given speed. 'speed' is a number anywhere from 0 to 100 to set motor speed. 'motor' is an optional string that helps identify which motor is being affected. for example, motor = "right drive".
   * <ins><i>motor1.counterclockwise(speed, motor)</i></ins> - The same as the clockwise() function but moves the motor counterclockwise. 
   * <ins><i>motor1.stop(motor)</i></ins> - This function stops the motor from running. It only requires the options input 'motor'.<br><br>
