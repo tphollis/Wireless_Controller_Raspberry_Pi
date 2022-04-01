@@ -69,4 +69,4 @@ Make sure the requirements are satisfied and the files in this repository are do
 <br><br><br>
 <b>5)</b> As you play around with the controller, fill in the BUTTONS and ANALOG lists in your new read_controller.py file where the "code" number represents a controller feature. Examples of these lists can be found in any supported read_controller.py file.
   * <b>Tips:</b> A new output line only appears when a change on the controller is detected. Buttons usually only have a value of 1 and 0. Any analog inputs such as analog sticks can be touchy; Causing multiple output lines to appear at times. Do your best to keep them stable. X and Y axis of analog sticks can be represented by different "code" numbers. Keep track of analog values when pushed to the max. example: All the way up is value = 0 and All the way down is value = 225.<br><br>
-If you do this, please share your new code in this repository so others can make use of their controller with your code. Thanks!
+If you do this, please share your new code in this repository so others can make use of their controller with their raspberry pi. Thanks!
