@@ -71,7 +71,7 @@ def translate_analog_stick(value):
     return translation
 
 
-#Runs the infinate loop activating code based on changes.
+'''...Runs the infinate loop activating code based on changes...'''
 def main():
     #The following shows GPIO numbers and their pin location on a raspberry pi.
     #pin:GPIO - 3:2, 5:3, 7:4, 8:14, 10:15, 11:17, 12:18, 13:27, 15:22, 16:23
