@@ -13,9 +13,11 @@ This repository contains python code you can use on your raspberry to control GP
 * Raspberry Pi running raspband operating system
 * python3 installed
 * pip3 install evdev
+<br>
 
 ## Current controllers supported
 * Playstation 5 Duelsense<br><br>
+<br>
 
 ## Programs and their uses
 * <b>motor.py</b> - A class used to control any motor connectd to Raspberry Pi BPIO pins.
