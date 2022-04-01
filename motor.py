@@ -40,7 +40,7 @@ class Motor():
         self.pwm.start(0)
 
     '''...Translates analog stick values to values the motor can use...'''
-    def translate_analog_stick(value, center):
+    def translateAnalogStick(value, center):
         #Motors can only go up to a power of 100.
         #The analog sticks can vary from 0 - 255.
         #Do math that makes it so full throttle up/down/left/right equals 100.
